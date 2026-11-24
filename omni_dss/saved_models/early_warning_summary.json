@@ -1,0 +1,18 @@
+{
+  "as_of": "2022-11-11 10:59:45",
+  "active_customers": 17778,
+  "alert_levels": {
+    "CRITICAL": 22,
+    "HIGH": 2573,
+    "MEDIUM": 10643,
+    "LOW": 4540
+  },
+  "opportunities": 409,
+  "by_strategy": {
+    "KB4": 4593,
+    "KB5": 4540,
+    "KB2": 3346,
+    "KB3": 3327,
+    "KB1": 1972
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "problem": "Bài toán B – Dự đoán rời bỏ, đánh giá walk-forward",
+  "design": {
+    "horizon_days": 7,
+    "step_days": 7,
+    "active_days": 30,
+    "training": "cửa sổ mở rộng (mọi mốc trước mốc kiểm tra)",
+    "model": "XGBoost",
+    "params": {
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_child_weight": 1,
+      "n_estimators": 200
+    }
+  },
+  "folds": [
+    {
+      "test_cutoff": "2022-10-14 10:59:44",
+      "train_cutoffs": [
+        "2022-10-07"
+      ],
+      "n_train": 441,
+      "n_test": 2280,
+      "churn_rate_train": 0.9841,
+      "churn_rate_test": 0.9728,
+      "status": "ok",
+      "roc_auc": 0.5061,
+      "balanced_accuracy": 0.504,
+      "recall_churn": 0.7015,
+      "recall_repurchase": 0.3065,
+      "recency_only_roc_auc": 0.5182,
+      "dss_alerts": {
+        "top_percent": 10.0,
+        "top_churn_rate": 0.9735,
+        "base_churn_rate": 0.9728,
+        "top_churn_lift": 1.001,
+        "bottom_percent": 20.0,
+        "bottom_repurchase_rate": 0.0308,
+        "base_repurchase_rate": 0.0272,
+        "bottom_repurchase_lift": 1.13
+      }
+    },
+    {
+      "test_cutoff": "2022-10-21 10:59:44",
+      "train_cutoffs": [
+        "2022-10-07",
+        "2022-10-14"
+      ],
+      "n_train": 2721,
+      "n_test": 6961,
+      "churn_rate_train": 0.9746,
+      "churn_rate_test": 0.955,
+      "status": "ok",
+      "roc_auc": 0.5075,
+      "balanced_accuracy": 0.5128,
+      "recall_churn": 0.7125,
+      "recall_repurchase": 0.3131,
+      "recency_only_roc_auc": 0.5758,
+      "dss_alerts": {
+        "top_percent": 10.0,
+        "top_churn_rate": 0.9505,
+        "base_churn_rate": 0.955,
+        "top_churn_lift": 0.995,
+        "bottom_percent": 20.0,
+        "bottom_repurchase_rate": 0.0491,
+        "base_repurchase_rate": 0.045,
+        "bottom_repurchase_lift": 1.09
+      }
+    },
+    {
+      "test_cutoff": "2022-10-28 10:59:44",
+      "train_cutoffs": [
+        "2022-10-07",
+        "2022-10-14",
+        "2022-10-21"
+      ],
+      "n_train": 9682,
+      "n_test": 9718,
+      "churn_rate_train": 0.9605,
+      "churn_rate_test": 0.9677,
+      "status": "ok",
+      "roc_auc": 0.6483,
+      "balanced_accuracy": 0.6211,
+      "recall_churn": 0.79,
+      "recall_repurchase": 0.4522,
+      "recency_only_roc_auc": 0.6243,
+      "dss_alerts": {
+        "top_percent": 10.0,
+        "top_churn_rate": 0.9835,
+        "base_churn_rate": 0.9677,
+        "top_churn_lift": 1.016,
+        "bottom_percent": 20.0,
+        "bottom_repurchase_rate": 0.0683,
+        "base_repurchase_rate": 0.0323,
+        "bottom_repurchase_lift": 2.11
+      }
+    },
+    {
+      "test_cutoff": "2022-11-04 10:59:44",
+      "train_cutoffs": [
+        "2022-10-07",
+        "2022-10-14",
+        "2022-10-21",
+        "2022-10-28"
+      ],
+      "n_train": 19400,
+      "n_test": 14115,
+      "churn_rate_train": 0.9641,
+      "churn_rate_test": 0.9685,
+      "status": "ok",
+      "roc_auc": 0.6472,
+      "balanced_accuracy": 0.6141,
+      "recall_churn": 0.7373,
+      "recall_repurchase": 0.491,
+      "recency_only_roc_auc": 0.6352,
+      "dss_alerts": {
+        "top_percent": 10.0,
+        "top_churn_rate": 0.9844,
+        "base_churn_rate": 0.9685,
+        "top_churn_lift": 1.016,
+        "bottom_percent": 20.0,
+        "bottom_repurchase_rate": 0.0588,
+        "base_repurchase_rate": 0.0315,
+        "bottom_repurchase_lift": 1.87
+      }
+    }
+  ],
+  "summary": {
+    "n_folds": 4,
+    "roc_auc_mean": 0.5773,
+    "roc_auc_std": 0.0814,
+    "roc_auc_min": 0.5061,
+    "roc_auc_max": 0.6483,
+    "beats_recency_only_in": 2
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "problem": "Bài toán A – Phân loại khách hàng mua lặp lại trong W ngày kể từ đơn hàng đầu tiên",
+  "label": "1 nếu khách có lần mua mới (đơn cách đơn trước > 8 giờ) trong (t0, t0 + W]; chỉ giữ khách có đủ W ngày theo dõi (cắt right-censoring)",
+  "features_policy": "Chỉ thông tin có tại thời điểm đặt đơn đầu; loại trạng thái và thời gian xử lý đơn",
+  "primary_window_days": 14,
+  "windows": [
+    {
+      "window_days": 7,
+      "eligible_customers": 14377,
+      "positives": 764,
+      "positive_rate": 0.0531,
+      "first_order_cutoff": "2022-11-04 10:59:44",
+      "data_end": "2022-11-11 10:59:44",
+      "label_quality": {
+        "session_gap_hours": 8.0,
+        "positives_without_session_merge": 939,
+        "positives_removed_by_session_merge": 175,
+        "positives_next_purchase_within_24h": 0.1322
+      },
+      "status": "ok",
+      "n_train": 11502,
+      "n_test": 2875,
+      "positive_rate_train": 0.0509,
+      "positive_rate_test": 0.0619,
+      "test_period_start": "2022-10-30 17:09:20",
+      "features": [
+        "price_log",
+        "retail_price_log",
+        "quantity",
+        "price_ratio",
+        "cod_ratio",
+        "is_from_ad",
+        "hour",
+        "dayofweek",
+        "is_weekend",
+        "day",
+        "num_variations",
+        "category_freq",
+        "province_freq",
+        "channel_Facebook Fanpage",
+        "channel_Shopee",
+        "channel_TikTok Shop",
+        "channel_Unknown/Other",
+        "channel_Website",
+        "prod_line_Nội y",
+        "prod_line_Tổng hợp",
+        "prod_line_Đầm/Váy Thời trang",
+        "region_Chưa xác định",
+        "region_Miền Bắc",
+        "region_Miền Nam",
+        "region_Miền Trung"
+      ],
+      "models": [
+        {
+          "model": "Logistic Regression",
+          "cv_roc_auc": 0.6182,
+          "best_params": {
+            "model__C": 1.0
+          },
+          "test": {
+            "roc_auc": 0.5443,
+            "balanced_accuracy": 0.5219,
+            "precision": 0.0697,
+            "recall": 0.3652,
+            "f1_score": 0.1171,
+            "accuracy": 0.6591
+          },
+          "test_pr_auc": 0.0805
+        },
+        {
+          "model": "Random Forest",
+          "cv_roc_auc": 0.6312,
+          "best_params": {
+            "max_depth": 4,
+            "min_samples_leaf": 20
+          },
+          "test": {
+            "roc_auc": 0.5433,
+            "balanced_accuracy": 0.5118,
+            "precision": 0.0691,
+            "recall": 0.2135,
+            "f1_score": 0.1044,
+            "accuracy": 0.7732
+          },
+          "test_pr_auc": 0.0693
+        },
+        {
+          "model": "XGBoost",
+          "cv_roc_auc": 0.6294,
+          "best_params": {
+            "learning_rate": 0.03,
+            "max_depth": 2,
+            "n_estimators": 200
+          },
+          "test": {
+            "roc_auc": 0.5449,
+            "balanced_accuracy": 0.5166,
+            "precision": 0.0711,
+            "recall": 0.2416,
+            "f1_score": 0.1098,
+            "accuracy": 0.7576
+          },
+          "test_pr_auc": 0.0698
+        }
+      ],
+      "best_model": "Random Forest",
+      "selection": "CV ROC-AUC (5-fold, chỉ tập train)"
+    },
+    {
+      "window_days": 14,
+      "eligible_customers": 9801,
+      "positives": 759,
+      "positive_rate": 0.0774,
+      "first_order_cutoff": "2022-10-28 10:59:44",
+      "data_end": "2022-11-11 10:59:44",
+      "label_quality": {
+        "session_gap_hours": 8.0,
+        "positives_without_session_merge": 862,
+        "positives_removed_by_session_merge": 103,
+        "positives_next_purchase_within_24h": 0.0711
+      },
+      "status": "ok",
+      "n_train": 7841,
+      "n_test": 1960,
+      "positive_rate_train": 0.0749,
+      "positive_rate_test": 0.0878,
+      "test_period_start": "2022-10-23 15:42:42",
+      "features": [
+        "price_log",
+        "retail_price_log",
+        "quantity",
+        "price_ratio",
+        "cod_ratio",
+        "is_from_ad",
+        "hour",
+        "dayofweek",
+        "is_weekend",
+        "day",
+        "num_variations",
+        "category_freq",
+        "province_freq",
+        "channel_Facebook Fanpage",
+        "channel_Shopee",
+        "channel_TikTok Shop",
+        "channel_Unknown/Other",
+        "channel_Website",
+        "prod_line_Nội y",
+        "prod_line_Tổng hợp",
+        "prod_line_Đầm/Váy Thời trang",
+        "region_Chưa xác định",
+        "region_Miền Bắc",
+        "region_Miền Nam",
+        "region_Miền Trung"
+      ],
+      "models": [
+        {
+          "model": "Logistic Regression",
+          "cv_roc_auc": 0.5971,
+          "best_params": {
+            "model__C": 1.0
+          },
+          "test": {
+            "roc_auc": 0.5394,
+            "balanced_accuracy": 0.5043,
+            "precision": 0.0885,
+            "recall": 0.9767,
+            "f1_score": 0.1622,
+            "accuracy": 0.1148
+          },
+          "test_pr_auc": 0.1021
+        },
+        {
+          "model": "Random Forest",
+          "cv_roc_auc": 0.5975,
+          "best_params": {
+            "max_depth": 8,
+            "min_samples_leaf": 20
+          },
+          "test": {
+            "roc_auc": 0.5563,
+            "balanced_accuracy": 0.5559,
+            "precision": 0.1312,
+            "recall": 0.3081,
+            "f1_score": 0.184,
+            "accuracy": 0.7602
+          },
+          "test_pr_auc": 0.1132
+        },
+        {
+          "model": "XGBoost",
+          "cv_roc_auc": 0.5975,
+          "best_params": {
+            "learning_rate": 0.03,
+            "max_depth": 2,
+            "n_estimators": 200
+          },
+          "test": {
+            "roc_auc": 0.512,
+            "balanced_accuracy": 0.5044,
+            "precision": 0.0909,
+            "recall": 0.2326,
+            "f1_score": 0.1307,
+            "accuracy": 0.7286
+          },
+          "test_pr_auc": 0.1019
+        }
+      ],
+      "best_model": "Random Forest",
+      "selection": "CV ROC-AUC (5-fold, chỉ tập train)"
+    },
+    {
+      "window_days": 21,
+      "eligible_customers": 6993,
+      "positives": 635,
+      "positive_rate": 0.0908,
+      "first_order_cutoff": "2022-10-21 10:59:44",
+      "data_end": "2022-11-11 10:59:44",
+      "label_quality": {
+        "session_gap_hours": 8.0,
+        "positives_without_session_merge": 687,
+        "positives_removed_by_session_merge": 52,
+        "positives_next_purchase_within_24h": 0.0425
+      },
+      "status": "ok",
+      "n_train": 5594,
+      "n_test": 1399,
+      "positive_rate_train": 0.0867,
+      "positive_rate_test": 0.1072,
+      "test_period_start": "2022-10-19 07:39:36",
+      "features": [
+        "price_log",
+        "retail_price_log",
+        "quantity",
+        "price_ratio",
+        "cod_ratio",
+        "is_from_ad",
+        "hour",
+        "dayofweek",
+        "is_weekend",
+        "day",
+        "num_variations",
+        "category_freq",
+        "province_freq",
+        "channel_Facebook Fanpage",
+        "channel_Shopee",
+        "channel_TikTok Shop",
+        "channel_Unknown/Other",
+        "channel_Website",
+        "prod_line_Nội y",
+        "prod_line_Tổng hợp",
+        "prod_line_Đầm/Váy Thời trang",
+        "region_Chưa xác định",
+        "region_Miền Bắc",
+        "region_Miền Nam",
+        "region_Miền Trung"
+      ],
+      "models": [
+        {
+          "model": "Logistic Regression",
+          "cv_roc_auc": 0.5787,
+          "best_params": {
+            "model__C": 1.0
+          },
+          "test": {
+            "roc_auc": 0.5291,
+            "balanced_accuracy": 0.5197,
+            "precision": 0.1154,
+            "recall": 0.4933,
+            "f1_score": 0.1871,
+            "accuracy": 0.5404
+          },
+          "test_pr_auc": 0.1226
+        },
+        {
+          "model": "Random Forest",
+          "cv_roc_auc": 0.586,
+          "best_params": {
+            "max_depth": 8,
+            "min_samples_leaf": 20
+          },
+          "test": {
+            "roc_auc": 0.5309,
+            "balanced_accuracy": 0.5054,
+            "precision": 0.1128,
+            "recall": 0.1933,
+            "f1_score": 0.1425,
+            "accuracy": 0.7505
+          },
+          "test_pr_auc": 0.119
+        },
+        {
+          "model": "XGBoost",
+          "cv_roc_auc": 0.5881,
+          "best_params": {
+            "learning_rate": 0.03,
+            "max_depth": 3,
+            "n_estimators": 200
+          },
+          "test": {
+            "roc_auc": 0.5331,
+            "balanced_accuracy": 0.5339,
+            "precision": 0.1275,
+            "recall": 0.38,
+            "f1_score": 0.191,
+            "accuracy": 0.6548
+          },
+          "test_pr_auc": 0.1227
+        }
+      ],
+      "best_model": "XGBoost",
+      "selection": "CV ROC-AUC (5-fold, chỉ tập train)"
+    },
+    {
+      "window_days": 60,
+      "eligible_customers": 18,
+      "positives": 1,
+      "positive_rate": 0.0556,
+      "first_order_cutoff": "2022-09-12 10:59:44",
+      "data_end": "2022-11-11 10:59:44",
+      "status": "Không đủ dữ liệu: cần >= 500 khách đủ điều kiện và >= 30 khách mua lại (hiện 18 khách, 1 mua lại)."
+    }
+  ]
+}
