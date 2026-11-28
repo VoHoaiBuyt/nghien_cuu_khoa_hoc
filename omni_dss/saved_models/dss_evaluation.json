@@ -1,0 +1,549 @@
+{
+  "data": {
+    "source": "Tập kiểm tra out-of-time (scored_customers.csv), nhãn = hành vi thực tế trong cửa sổ kết quả",
+    "customers": 2724,
+    "base_actual_churn_rate": 0.9622,
+    "base_actual_repurchase_rate": 0.0378
+  },
+  "risk_alerts": {
+    "definition": "Mức cảnh báo DSS CRITICAL hoặc HIGH (luật DSS trên percentile rủi ro)",
+    "alerted": {
+      "customers": 426,
+      "actual_churn_rate": 0.9789,
+      "actual_repurchase_rate": 0.0211,
+      "repurchased_customers": 9,
+      "repurchase_lift": 0.56,
+      "mean_risk_percentile": 89.36
+    },
+    "not_alerted": {
+      "customers": 2298,
+      "actual_churn_rate": 0.9591,
+      "actual_repurchase_rate": 0.0409,
+      "repurchased_customers": 94,
+      "repurchase_lift": 1.08,
+      "mean_risk_percentile": 43.04
+    },
+    "churn_rate_bootstrap": {
+      "rate_ci95": [
+        0.9651,
+        0.9907
+      ],
+      "lift_ci95": [
+        1.0031,
+        1.0309
+      ],
+      "n_boot": 2000
+    }
+  },
+  "opportunity_alerts": {
+    "definition": "Phân khúc VIP / Tiềm năng và thuộc 20% khách có điểm rủi ro thấp nhất",
+    "alerted": {
+      "customers": 46,
+      "actual_churn_rate": 0.8478,
+      "actual_repurchase_rate": 0.1522,
+      "repurchased_customers": 7,
+      "repurchase_lift": 4.02,
+      "mean_risk_percentile": 4.18
+    },
+    "not_alerted": {
+      "customers": 2678,
+      "actual_churn_rate": 0.9642,
+      "actual_repurchase_rate": 0.0358,
+      "repurchased_customers": 96,
+      "repurchase_lift": 0.95,
+      "mean_risk_percentile": 51.08
+    },
+    "repurchase_bootstrap": {
+      "rate_ci95": [
+        0.0556,
+        0.2653
+      ],
+      "lift_ci95": [
+        1.5438,
+        6.9764
+      ],
+      "n_boot": 2000
+    }
+  },
+  "by_alert_level": {
+    "CRITICAL": {
+      "customers": 2,
+      "actual_churn_rate": 1.0,
+      "actual_repurchase_rate": 0.0,
+      "repurchased_customers": 0,
+      "repurchase_lift": 0.0,
+      "mean_risk_percentile": 92.0
+    },
+    "HIGH": {
+      "customers": 424,
+      "actual_churn_rate": 0.9788,
+      "actual_repurchase_rate": 0.0212,
+      "repurchased_customers": 9,
+      "repurchase_lift": 0.56,
+      "mean_risk_percentile": 89.35
+    },
+    "MEDIUM": {
+      "customers": 1634,
+      "actual_churn_rate": 0.9645,
+      "actual_repurchase_rate": 0.0355,
+      "repurchased_customers": 58,
+      "repurchase_lift": 0.94,
+      "mean_risk_percentile": 43.96
+    },
+    "LOW": {
+      "customers": 664,
+      "actual_churn_rate": 0.9458,
+      "actual_repurchase_rate": 0.0542,
+      "repurchased_customers": 36,
+      "repurchase_lift": 1.43,
+      "mean_risk_percentile": 40.77
+    }
+  },
+  "by_segment": {
+    "Cần chăm sóc": {
+      "customers": 444,
+      "actual_churn_rate": 0.9752,
+      "actual_repurchase_rate": 0.0248,
+      "repurchased_customers": 11,
+      "repurchase_lift": 0.66,
+      "mean_risk_percentile": 74.19
+    },
+    "Rủi ro": {
+      "customers": 1000,
+      "actual_churn_rate": 0.962,
+      "actual_repurchase_rate": 0.038,
+      "repurchased_customers": 38,
+      "repurchase_lift": 1.0,
+      "mean_risk_percentile": 33.02
+    },
+    "Tiềm năng": {
+      "customers": 1178,
+      "actual_churn_rate": 0.9601,
+      "actual_repurchase_rate": 0.0399,
+      "repurchased_customers": 47,
+      "repurchase_lift": 1.06,
+      "mean_risk_percentile": 57.82
+    },
+    "VIP": {
+      "customers": 102,
+      "actual_churn_rate": 0.9314,
+      "actual_repurchase_rate": 0.0686,
+      "repurchased_customers": 7,
+      "repurchase_lift": 1.81,
+      "mean_risk_percentile": 28.47
+    }
+  },
+  "by_strategy": {
+    "KB1": {
+      "name": "Cứu vãn khẩn cấp",
+      "customers": 273,
+      "actual_churn_rate": 0.978,
+      "actual_repurchase_rate": 0.022,
+      "repurchased_customers": 6,
+      "repurchase_lift": 0.58,
+      "mean_risk_percentile": 95.02
+    },
+    "KB2": {
+      "name": "Win-back nhóm Rủi ro",
+      "customers": 942,
+      "actual_churn_rate": 0.9597,
+      "actual_repurchase_rate": 0.0403,
+      "repurchased_customers": 38,
+      "repurchase_lift": 1.07,
+      "mean_risk_percentile": 29.14
+    },
+    "KB3": {
+      "name": "Giữ chân khách giá trị đang giảm tương tác",
+      "customers": 487,
+      "actual_churn_rate": 0.9692,
+      "actual_repurchase_rate": 0.0308,
+      "repurchased_customers": 15,
+      "repurchase_lift": 0.81,
+      "mean_risk_percentile": 65.15
+    },
+    "KB4": {
+      "name": "Kích hoạt lại nhu cầu",
+      "customers": 358,
+      "actual_churn_rate": 0.9777,
+      "actual_repurchase_rate": 0.0223,
+      "repurchased_customers": 8,
+      "repurchase_lift": 0.59,
+      "mean_risk_percentile": 69.23
+    },
+    "KB5": {
+      "name": "Tri ân & bán thêm",
+      "customers": 664,
+      "actual_churn_rate": 0.9458,
+      "actual_repurchase_rate": 0.0542,
+      "repurchased_customers": 36,
+      "repurchase_lift": 1.43,
+      "mean_risk_percentile": 40.77
+    }
+  },
+  "rule_coverage": [
+    {
+      "rule_id": "R01_VIP_CRITICAL",
+      "level": "CRITICAL",
+      "strategy": "KB1",
+      "customers": 2,
+      "actual_churn_rate": 1.0,
+      "actual_repurchase_rate": 0.0,
+      "repurchased_customers": 0,
+      "repurchase_lift": 0.0,
+      "mean_risk_percentile": 92.0
+    },
+    {
+      "rule_id": "R02_HIGH_CHURN",
+      "level": "HIGH",
+      "strategy": "KB1",
+      "customers": 271,
+      "actual_churn_rate": 0.9779,
+      "actual_repurchase_rate": 0.0221,
+      "repurchased_customers": 6,
+      "repurchase_lift": 0.59,
+      "mean_risk_percentile": 95.04
+    },
+    {
+      "rule_id": "R03_AT_RISK_MEDIUM_CHURN",
+      "level": "HIGH",
+      "strategy": "KB2",
+      "customers": 153,
+      "actual_churn_rate": 0.9804,
+      "actual_repurchase_rate": 0.0196,
+      "repurchased_customers": 3,
+      "repurchase_lift": 0.52,
+      "mean_risk_percentile": 79.26
+    },
+    {
+      "rule_id": "R04_AT_RISK_FLOOR",
+      "level": "MEDIUM",
+      "strategy": "KB2",
+      "customers": 789,
+      "actual_churn_rate": 0.9556,
+      "actual_repurchase_rate": 0.0444,
+      "repurchased_customers": 35,
+      "repurchase_lift": 1.17,
+      "mean_risk_percentile": 19.42
+    },
+    {
+      "rule_id": "R05_VIP_DECLINING",
+      "level": "MEDIUM",
+      "strategy": "KB3",
+      "customers": 77,
+      "actual_churn_rate": 0.961,
+      "actual_repurchase_rate": 0.039,
+      "repurchased_customers": 3,
+      "repurchase_lift": 1.03,
+      "mean_risk_percentile": 34.34
+    },
+    {
+      "rule_id": "R06_POTENTIAL_DECLINING",
+      "level": "MEDIUM",
+      "strategy": "KB3",
+      "customers": 410,
+      "actual_churn_rate": 0.9707,
+      "actual_repurchase_rate": 0.0293,
+      "repurchased_customers": 12,
+      "repurchase_lift": 0.77,
+      "mean_risk_percentile": 70.94
+    },
+    {
+      "rule_id": "R07_NEEDS_ATTENTION",
+      "level": "MEDIUM",
+      "strategy": "KB4",
+      "customers": 358,
+      "actual_churn_rate": 0.9777,
+      "actual_repurchase_rate": 0.0223,
+      "repurchased_customers": 8,
+      "repurchase_lift": 0.59,
+      "mean_risk_percentile": 69.23
+    },
+    {
+      "rule_id": "R08_UNKNOWN_MEDIUM_CHURN",
+      "level": "MEDIUM",
+      "strategy": "KB4",
+      "customers": 0,
+      "actual_churn_rate": null,
+      "actual_repurchase_rate": null,
+      "repurchased_customers": 0,
+      "repurchase_lift": null,
+      "mean_risk_percentile": null
+    },
+    {
+      "rule_id": "R09_VIP_LOYAL",
+      "level": "LOW",
+      "strategy": "KB5",
+      "customers": 23,
+      "actual_churn_rate": 0.8261,
+      "actual_repurchase_rate": 0.1739,
+      "repurchased_customers": 4,
+      "repurchase_lift": 4.6,
+      "mean_risk_percentile": 3.3
+    },
+    {
+      "rule_id": "R10_POTENTIAL_GROWTH",
+      "level": "LOW",
+      "strategy": "KB5",
+      "customers": 641,
+      "actual_churn_rate": 0.9501,
+      "actual_repurchase_rate": 0.0499,
+      "repurchased_customers": 32,
+      "repurchase_lift": 1.32,
+      "mean_risk_percentile": 42.12
+    }
+  ],
+  "threshold_sensitivity": {
+    "risk_top_percent": [
+      {
+        "top_percent": 5,
+        "customers": 137,
+        "actual_churn_rate": 0.9927,
+        "churn_lift": 1.032
+      },
+      {
+        "top_percent": 10,
+        "customers": 273,
+        "actual_churn_rate": 0.978,
+        "churn_lift": 1.016
+      },
+      {
+        "top_percent": 20,
+        "customers": 552,
+        "actual_churn_rate": 0.9746,
+        "churn_lift": 1.013
+      },
+      {
+        "top_percent": 30,
+        "customers": 818,
+        "actual_churn_rate": 0.9756,
+        "churn_lift": 1.014
+      },
+      {
+        "top_percent": 40,
+        "customers": 1091,
+        "actual_churn_rate": 0.9753,
+        "churn_lift": 1.014
+      }
+    ],
+    "opportunity_max_percentile": [
+      {
+        "max_percentile": 10,
+        "customers": 38,
+        "actual_repurchase_rate": 0.1842,
+        "repurchase_lift": 4.87
+      },
+      {
+        "max_percentile": 20,
+        "customers": 46,
+        "actual_repurchase_rate": 0.1522,
+        "repurchase_lift": 4.02
+      },
+      {
+        "max_percentile": 30,
+        "customers": 190,
+        "actual_repurchase_rate": 0.1,
+        "repurchase_lift": 2.64
+      },
+      {
+        "max_percentile": 40,
+        "customers": 324,
+        "actual_repurchase_rate": 0.0802,
+        "repurchase_lift": 2.12
+      },
+      {
+        "max_percentile": 50,
+        "customers": 518,
+        "actual_repurchase_rate": 0.0637,
+        "repurchase_lift": 1.68
+      }
+    ]
+  },
+  "repurchase_ranking": {
+    "cumulative_gains": [
+      {
+        "population_share": 0.05,
+        "captured_share": 0.1165,
+        "precision": 0.0882
+      },
+      {
+        "population_share": 0.1,
+        "captured_share": 0.1845,
+        "precision": 0.0699
+      },
+      {
+        "population_share": 0.15,
+        "captured_share": 0.2427,
+        "precision": 0.0611
+      },
+      {
+        "population_share": 0.2,
+        "captured_share": 0.2816,
+        "precision": 0.0532
+      },
+      {
+        "population_share": 0.25,
+        "captured_share": 0.3398,
+        "precision": 0.0514
+      },
+      {
+        "population_share": 0.3,
+        "captured_share": 0.466,
+        "precision": 0.0588
+      },
+      {
+        "population_share": 0.35,
+        "captured_share": 0.5146,
+        "precision": 0.0556
+      },
+      {
+        "population_share": 0.4,
+        "captured_share": 0.5825,
+        "precision": 0.055
+      },
+      {
+        "population_share": 0.45,
+        "captured_share": 0.6408,
+        "precision": 0.0538
+      },
+      {
+        "population_share": 0.5,
+        "captured_share": 0.6699,
+        "precision": 0.0507
+      },
+      {
+        "population_share": 0.55,
+        "captured_share": 0.7087,
+        "precision": 0.0487
+      },
+      {
+        "population_share": 0.6,
+        "captured_share": 0.7379,
+        "precision": 0.0465
+      },
+      {
+        "population_share": 0.65,
+        "captured_share": 0.7573,
+        "precision": 0.044
+      },
+      {
+        "population_share": 0.7,
+        "captured_share": 0.8058,
+        "precision": 0.0435
+      },
+      {
+        "population_share": 0.75,
+        "captured_share": 0.835,
+        "precision": 0.0421
+      },
+      {
+        "population_share": 0.8,
+        "captured_share": 0.8641,
+        "precision": 0.0408
+      },
+      {
+        "population_share": 0.85,
+        "captured_share": 0.9029,
+        "precision": 0.0402
+      },
+      {
+        "population_share": 0.9,
+        "captured_share": 0.9417,
+        "precision": 0.0396
+      },
+      {
+        "population_share": 0.95,
+        "captured_share": 0.9903,
+        "precision": 0.0394
+      },
+      {
+        "population_share": 1.0,
+        "captured_share": 1.0,
+        "precision": 0.0378
+      }
+    ],
+    "top_5pct": {
+      "population_share": 0.05,
+      "captured_share": 0.1165,
+      "precision": 0.0882
+    },
+    "top_10pct": {
+      "population_share": 0.1,
+      "captured_share": 0.1845,
+      "precision": 0.0699
+    },
+    "top_20pct": {
+      "population_share": 0.2,
+      "captured_share": 0.2816,
+      "precision": 0.0532
+    }
+  },
+  "case_studies": [
+    {
+      "title": "VIP có nguy cơ rời bỏ cao",
+      "display_id": "KH_GLORW7RLXR",
+      "segment": "VIP",
+      "recency_days": 8.3,
+      "completed_orders": 2,
+      "total_orders": 2,
+      "monetary": 340000.0,
+      "channel": "TikTok Shop",
+      "region": "Miền Nam",
+      "churn_prob_pct": 72.82,
+      "risk_percentile": 92.47,
+      "alert_level": "CRITICAL",
+      "strategy": "KB1 – Cứu vãn khẩn cấp",
+      "matched_rules": [
+        "R01_VIP_CRITICAL"
+      ],
+      "recommendation": "Chuyên viên VIP liên hệ trong 24h, tặng voucher 20% và quà tri ân cá nhân hóa",
+      "actual_outcome": "Không mua lại (churn)"
+    },
+    {
+      "title": "Khách tiềm năng có xu hướng mua lại",
+      "display_id": "KH_VOTNSFGDBJ",
+      "segment": "VIP",
+      "recency_days": 5.5,
+      "completed_orders": 2,
+      "total_orders": 2,
+      "monetary": 1300000.0,
+      "channel": "Facebook Fanpage",
+      "region": "Miền Nam",
+      "churn_prob_pct": 20.67,
+      "risk_percentile": 0.04,
+      "alert_level": "LOW",
+      "strategy": "KB5 – Tri ân & bán thêm",
+      "matched_rules": [
+        "R09_VIP_LOYAL"
+      ],
+      "recommendation": "Mời tham gia chương trình tri ân đặc quyền",
+      "actual_outcome": "Không mua lại (churn)"
+    },
+    {
+      "title": "Khách nhóm Rủi ro (chưa có/ít đơn thành công)",
+      "display_id": "KH_VSOFGPPCYO",
+      "segment": "Rủi ro",
+      "recency_days": 48.3,
+      "completed_orders": 0,
+      "total_orders": 1,
+      "monetary": 0.0,
+      "channel": "Facebook Fanpage",
+      "region": "Miền Bắc",
+      "churn_prob_pct": 84.28,
+      "risk_percentile": 99.93,
+      "alert_level": "HIGH",
+      "strategy": "KB1 – Cứu vãn khẩn cấp",
+      "matched_rules": [
+        "R02_HIGH_CHURN"
+      ],
+      "recommendation": "Gửi voucher giảm giá 15% và CSKH liên hệ trực tiếp",
+      "actual_outcome": "Không mua lại (churn)"
+    }
+  ],
+  "limitations": [
+    "Đo khả năng nhắm đúng đối tượng, chưa đo hiệu quả nhân quả của hành động CSKH (cần thử nghiệm A/B).",
+    "Nhóm cảnh báo khách tiềm năng nhỏ nên khoảng tin cậy rộng (xem repurchase_bootstrap).",
+    "Cửa sổ kết quả ngắn (vài ngày) vì dữ liệu chỉ kéo dài khoảng 5 tháng.",
+    "Ngưỡng cảnh báo cơ hội (20%) được chọn sau khi xem kết quả trên chính tập kiểm tra này, nên lift ở đây có thể lạc quan; ước lượng độc lập hơn là đánh giá walk-forward (không chỉnh ngưỡng theo từng kỳ).",
+    "Mô hình K-Means được huấn luyện trên RFM của toàn bộ giai đoạn (gồm cả sau mốc cắt), chỉ việc gán phân khúc cho khách kiểm tra mới dùng số liệu tại mốc cắt."
+  ]
+}

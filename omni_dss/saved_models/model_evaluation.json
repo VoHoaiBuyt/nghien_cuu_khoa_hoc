@@ -1,0 +1,257 @@
+{
+  "test_set": {
+    "customers": 2724,
+    "churn_rate": 0.9622,
+    "model": "XGBoost",
+    "outcome_window": {
+      "start": "2022-11-02 21:32:06",
+      "end": "2022-11-11 10:59:44",
+      "days": 8.56
+    }
+  },
+  "model_comparison": [
+    {
+      "model": "Logistic Regression",
+      "cv_roc_auc_mean": 0.6594,
+      "cv_roc_auc_std": 0.0247,
+      "test_roc_auc": 0.618,
+      "test_balanced_accuracy": 0.5571,
+      "test_recall": 0.6967,
+      "test_retained_recall": 0.4175,
+      "test_retained_pr_auc": 0.0849
+    },
+    {
+      "model": "Decision Tree",
+      "cv_roc_auc_mean": 0.6295,
+      "cv_roc_auc_std": 0.0241,
+      "test_roc_auc": 0.6025,
+      "test_balanced_accuracy": 0.5937,
+      "test_recall": 0.702,
+      "test_retained_recall": 0.4854,
+      "test_retained_pr_auc": 0.0497
+    },
+    {
+      "model": "Random Forest",
+      "cv_roc_auc_mean": 0.6555,
+      "cv_roc_auc_std": 0.0267,
+      "test_roc_auc": 0.6118,
+      "test_balanced_accuracy": 0.5937,
+      "test_recall": 0.6631,
+      "test_retained_recall": 0.5243,
+      "test_retained_pr_auc": 0.0569
+    },
+    {
+      "model": "XGBoost",
+      "cv_roc_auc_mean": 0.6612,
+      "cv_roc_auc_std": 0.0254,
+      "test_roc_auc": 0.6103,
+      "test_balanced_accuracy": 0.5759,
+      "test_recall": 0.6761,
+      "test_retained_recall": 0.4757,
+      "test_retained_pr_auc": 0.0689
+    }
+  ],
+  "best_by_cv": "XGBoost",
+  "uncertainty_vs_recency_baseline": {
+    "model_auc": 0.6103,
+    "model_auc_ci95": [
+      0.5547,
+      0.6655
+    ],
+    "baseline_auc": 0.625,
+    "baseline_auc_ci95": [
+      0.5693,
+      0.6784
+    ],
+    "difference_ci95": [
+      -0.045,
+      0.0155
+    ],
+    "share_model_better": 0.161,
+    "n_boot": 2000
+  },
+  "repurchase_ranking": {
+    "pr_auc": 0.0689,
+    "base_rate": 0.0378
+  },
+  "calibration": {
+    "bins": [
+      {
+        "decile": 1,
+        "customers": 273,
+        "mean_predicted": 0.3267,
+        "actual_rate": 0.9304
+      },
+      {
+        "decile": 2,
+        "customers": 272,
+        "mean_predicted": 0.349,
+        "actual_rate": 0.9632
+      },
+      {
+        "decile": 3,
+        "customers": 272,
+        "mean_predicted": 0.4177,
+        "actual_rate": 0.9301
+      },
+      {
+        "decile": 4,
+        "customers": 273,
+        "mean_predicted": 0.5067,
+        "actual_rate": 0.956
+      },
+      {
+        "decile": 5,
+        "customers": 272,
+        "mean_predicted": 0.564,
+        "actual_rate": 0.9669
+      },
+      {
+        "decile": 6,
+        "customers": 272,
+        "mean_predicted": 0.5974,
+        "actual_rate": 0.9743
+      },
+      {
+        "decile": 7,
+        "customers": 273,
+        "mean_predicted": 0.6241,
+        "actual_rate": 0.9744
+      },
+      {
+        "decile": 8,
+        "customers": 272,
+        "mean_predicted": 0.654,
+        "actual_rate": 0.9779
+      },
+      {
+        "decile": 9,
+        "customers": 272,
+        "mean_predicted": 0.6836,
+        "actual_rate": 0.9706
+      },
+      {
+        "decile": 10,
+        "customers": 273,
+        "mean_predicted": 0.7627,
+        "actual_rate": 0.978
+      }
+    ],
+    "expected_calibration_error": 0.4136,
+    "brier_model": 0.223,
+    "brier_constant_base_rate": 0.0364,
+    "mean_predicted": 0.5486,
+    "actual_rate": 0.9622,
+    "monotonic_actual_by_decile": false
+  },
+  "walk_forward": {
+    "design": {
+      "horizon_days": 7,
+      "step_days": 7,
+      "active_days": 30,
+      "training": "cửa sổ mở rộng (mọi mốc trước mốc kiểm tra)",
+      "model": "XGBoost",
+      "params": {
+        "learning_rate": 0.03,
+        "max_depth": 2,
+        "min_child_weight": 1,
+        "n_estimators": 200
+      }
+    },
+    "summary": {
+      "n_folds": 4,
+      "roc_auc_mean": 0.5773,
+      "roc_auc_std": 0.0814,
+      "roc_auc_min": 0.5061,
+      "roc_auc_max": 0.6483,
+      "beats_recency_only_in": 2
+    },
+    "folds": [
+      {
+        "test_cutoff": "2022-10-14 10:59:44",
+        "n_train": 441,
+        "n_test": 2280,
+        "churn_rate_test": 0.9728,
+        "roc_auc": 0.5061,
+        "recency_only_roc_auc": 0.5182
+      },
+      {
+        "test_cutoff": "2022-10-21 10:59:44",
+        "n_train": 2721,
+        "n_test": 6961,
+        "churn_rate_test": 0.955,
+        "roc_auc": 0.5075,
+        "recency_only_roc_auc": 0.5758
+      },
+      {
+        "test_cutoff": "2022-10-28 10:59:44",
+        "n_train": 9682,
+        "n_test": 9718,
+        "churn_rate_test": 0.9677,
+        "roc_auc": 0.6483,
+        "recency_only_roc_auc": 0.6243
+      },
+      {
+        "test_cutoff": "2022-11-04 10:59:44",
+        "n_train": 19400,
+        "n_test": 14115,
+        "churn_rate_test": 0.9685,
+        "roc_auc": 0.6472,
+        "recency_only_roc_auc": 0.6352
+      }
+    ]
+  },
+  "repeat_purchase": [
+    {
+      "window_days": 7,
+      "status": "ok",
+      "eligible_customers": 14377,
+      "positive_rate": 0.0531,
+      "best_model": "Random Forest",
+      "label_session_gap_hours": 8.0,
+      "label_positives_without_session_merge": 939,
+      "label_positives_removed_by_session_merge": 175,
+      "label_positives_next_purchase_within_24h": 0.1322,
+      "test_roc_auc": 0.5433,
+      "test_pr_auc": 0.0693
+    },
+    {
+      "window_days": 14,
+      "status": "ok",
+      "eligible_customers": 9801,
+      "positive_rate": 0.0774,
+      "best_model": "Random Forest",
+      "label_session_gap_hours": 8.0,
+      "label_positives_without_session_merge": 862,
+      "label_positives_removed_by_session_merge": 103,
+      "label_positives_next_purchase_within_24h": 0.0711,
+      "test_roc_auc": 0.5563,
+      "test_pr_auc": 0.1132
+    },
+    {
+      "window_days": 21,
+      "status": "ok",
+      "eligible_customers": 6993,
+      "positive_rate": 0.0908,
+      "best_model": "XGBoost",
+      "label_session_gap_hours": 8.0,
+      "label_positives_without_session_merge": 687,
+      "label_positives_removed_by_session_merge": 52,
+      "label_positives_next_purchase_within_24h": 0.0425,
+      "test_roc_auc": 0.5331,
+      "test_pr_auc": 0.1227
+    },
+    {
+      "window_days": 60,
+      "status": "Không đủ dữ liệu: cần >= 500 khách đủ điều kiện và >= 30 khách mua lại (hiện 18 khách, 1 mua lại).",
+      "eligible_customers": 18,
+      "positive_rate": 0.0556,
+      "best_model": null
+    }
+  ],
+  "conclusions_inputs": {
+    "oot_test_auc": 0.6103,
+    "walk_forward_auc_mean": 0.5773,
+    "walk_forward_auc_std": 0.0814
+  }
+}
